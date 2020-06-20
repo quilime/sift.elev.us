@@ -1,22 +1,22 @@
 <?php
 
-require_once('db.php');
-require_once('insert.php');
+require_once('sift/sift.db.php');
 
-use Sift\SQLiteConnection;
-use Sift\SQLiteInsert;
+use Sift\SiftDB;
+$siftDB = new SiftDB();
 
-$cx = new SQLiteConnection();
-
-$pdo = $cx->connect();
+$pdo = $siftDB->connect();
 
 if ($pdo == null) {
   echo 'Could not connect to the SQLite database';
   exit();  
+} else {
+  echo "DB Connected.";
 }
 
+$tables = $siftDB->getTableList();
 
-$dbInsert = new SQLiteInsert($pdo);
+print_r($tables);
 
 // insert a new image
-$imageId = $dbInsert->insertImage('filename.png', 'desc', 'tags');
+// $imageId = $siftDB->insertImage('filename.png', 'desc', 'tags');
