@@ -161,34 +161,38 @@
               <td>
                   <p class="name">
                       {% if (file.url) { %}
-                          filename: <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" {%=file.thumbnailUrl?'data-gallery':''%}>{%=file.name%}</a>
+                          <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" {%=file.thumbnailUrl?'data-gallery':''%}>{%=file.name%}</a>
                       {% } else { %}
                           <span>{%=file.name%}</span>
                       {% } %}
+                      <br/>
+                      <span class="size">{%=o.formatFileSize(file.size)%}</span>
                   </p>
                   <p class="edit">
-                    tags: <input></input><br/>
-                    description: <input></input><br/>
-                    source: <input></input><br/>
+                    <label>tags (separated by spaces)</label>
+                    <input name="edit-tags"></input>
+                  </p>
+                  <p class="edit">
+                    <label>description</label>
+                    <textarea name="edit-desc"></textarea>
+                  </p>
+                  <p class="edit">
+                    <label>source</label>
+                    <input name="edit-source"></input>
                   </p>
                   <p>
                     <button disabled class="btn btn-primary edit">
                       <i class="glyphicon glyphicon-edit"></i>
                       <span>Commit Edits</span>
                     </button>
-                  </p>
-                      <p>
                     <button class="btn btn-success edit">
-                      <i class="glyphicon glyphicon-edit"></i>
+                      <i class="glyphicon glyphicon-ok"></i>
                       <span>Add to Sift</span>
                     </button>                        
-                      </p>                  
+                  </p>               
                   {% if (file.error) { %}
                       <div><span class="label label-danger">Error</span> {%=file.error%}</div>
                   {% } %}
-              </td>
-              <td>
-                  <span class="size">{%=o.formatFileSize(file.size)%}</span>
               </td>
               <td>
                   {% if (file.deleteUrl) { %}
@@ -197,7 +201,8 @@
                           <span>Delete</span>
                       </button>
                       <p>
-                        Delete 
+                        <i class="glyphicon glyphicon-trash"></i>
+                        <span>Delete</span>
                         <input type="checkbox" name="delete" value="1" class="toggle">
                       </p>
                   {% } else { %}

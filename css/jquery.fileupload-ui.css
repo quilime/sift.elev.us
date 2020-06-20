@@ -45,6 +45,18 @@
   margin-left: 10px;
 }
 
+.files .edit label {
+  display:block;
+}
+.files .edit input,
+.files .edit textarea {
+  width:100%;
+}
+.files .edit textarea {
+  height:5em;
+  border-color:#ccc;
+}
+
 @media (max-width: 767px) {
   .fileupload-buttonbar .btn {
     margin-bottom: 5px;
