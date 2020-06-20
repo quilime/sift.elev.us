@@ -172,7 +172,7 @@
                     source: <input></input><br/>
                   </p>
                   <p>
-                    <button class="btn btn-primary edit">
+                    <button disabled class="btn btn-primary edit">
                       <i class="glyphicon glyphicon-edit"></i>
                       <span>Commit Edits</span>
                     </button>
@@ -192,7 +192,7 @@
               </td>
               <td>
                   {% if (file.deleteUrl) { %}
-                       <button class="btn btn-danger delete" data-type="{%=file.deleteType%}" data-url="{%=file.deleteUrl%}"{% if (file.deleteWithCredentials) { %} data-xhr-fields='{"withCredentials":true}'{% } %}>
+                       <button style="display:none;" class="btn btn-danger delete" data-type="{%=file.deleteType%}" data-url="{%=file.deleteUrl%}"{% if (file.deleteWithCredentials) { %} data-xhr-fields='{"withCredentials":true}'{% } %}>
                           <i class="glyphicon glyphicon-trash"></i>
                           <span>Delete</span>
                       </button>

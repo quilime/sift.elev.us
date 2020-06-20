@@ -53,7 +53,7 @@
       // By default, files added to the widget are uploaded as soon
       // as the user clicks on the start buttons. To enable automatic
       // uploads, set the following option to true:
-      autoUpload: false,
+      autoUpload: true,
       // The class to show/hide UI elements:
       showElementClass: 'in',
       // The ID of the upload template:
