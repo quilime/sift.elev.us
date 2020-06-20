@@ -57,7 +57,7 @@
             </span>
             <button type="submit" class="btn btn-primary start">
               <i class="glyphicon glyphicon-upload"></i>
-              <span>Start upload</span>
+              <span>Upload All</span>
             </button>
             <button type="reset" class="btn btn-warning cancel">
               <i class="glyphicon glyphicon-ban-circle"></i>
@@ -134,7 +134,7 @@
                   {% if (!i && !o.options.autoUpload) { %}
                       <button class="btn btn-primary start" disabled>
                           <i class="glyphicon glyphicon-upload"></i>
-                          <span>Start</span>
+                          <span>Upload</span>
                       </button>
                   {% } %}
                   {% if (!i) { %}
@@ -161,11 +161,28 @@
               <td>
                   <p class="name">
                       {% if (file.url) { %}
-                          <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" {%=file.thumbnailUrl?'data-gallery':''%}>{%=file.name%}</a>
+                          filename: <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" {%=file.thumbnailUrl?'data-gallery':''%}>{%=file.name%}</a>
                       {% } else { %}
                           <span>{%=file.name%}</span>
                       {% } %}
                   </p>
+                  <p class="edit">
+                    tags: <input></input><br/>
+                    description: <input></input><br/>
+                    source: <input></input><br/>
+                  </p>
+                  <p>
+                    <button class="btn btn-primary edit">
+                      <i class="glyphicon glyphicon-edit"></i>
+                      <span>Commit Edits</span>
+                    </button>
+                  </p>
+                      <p>
+                    <button class="btn btn-success edit">
+                      <i class="glyphicon glyphicon-edit"></i>
+                      <span>Add to Sift</span>
+                    </button>                        
+                      </p>                  
                   {% if (file.error) { %}
                       <div><span class="label label-danger">Error</span> {%=file.error%}</div>
                   {% } %}
@@ -175,11 +192,14 @@
               </td>
               <td>
                   {% if (file.deleteUrl) { %}
-                      <button class="btn btn-danger delete" data-type="{%=file.deleteType%}" data-url="{%=file.deleteUrl%}"{% if (file.deleteWithCredentials) { %} data-xhr-fields='{"withCredentials":true}'{% } %}>
+<!--                       <button class="btn btn-danger delete" data-type="{%=file.deleteType%}" data-url="{%=file.deleteUrl%}"{% if (file.deleteWithCredentials) { %} data-xhr-fields='{"withCredentials":true}'{% } %}>
                           <i class="glyphicon glyphicon-trash"></i>
                           <span>Delete</span>
-                      </button>
-                      <input type="checkbox" name="delete" value="1" class="toggle">
+                      </button> -->
+                      <p>
+                        Delete 
+                        <input type="checkbox" name="delete" value="1" class="toggle">
+                      </p>
                   {% } else { %}
                       <button class="btn btn-warning cancel">
                           <i class="glyphicon glyphicon-ban-circle"></i>
