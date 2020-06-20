@@ -576,18 +576,20 @@
 
     _deleteHandler: function (e) {
       e.preventDefault();
-      var button = $(e.currentTarget);
-      this._trigger(
-        'destroy',
-        e,
-        $.extend(
-          {
-            context: button.closest('.template-download'),
-            type: 'DELETE'
-          },
-          button.data()
-        )
-      );
+      if (confirm("Are you sure?")) {
+        var button = $(e.currentTarget);
+        this._trigger(
+          'destroy',
+          e,
+          $.extend(
+            {
+              context: button.closest('.template-download'),
+              type: 'DELETE'
+            },
+            button.data()
+          )
+        );
+      }
     },
 
     _forceReflow: function (node) {
