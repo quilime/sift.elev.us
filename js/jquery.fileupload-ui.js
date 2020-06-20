@@ -576,7 +576,7 @@
 
     _deleteHandler: function (e) {
       e.preventDefault();
-      if (confirm("Are you sure?")) {
+      if (confirm("Confirm Delete?")) {
         var button = $(e.currentTarget);
         this._trigger(
           'destroy',
